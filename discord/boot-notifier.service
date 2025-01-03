@@ -1,0 +1,12 @@
+[Unit]
+Description=Boot Notifier
+After=network.target
+
+[Service]
+Type=oneshot
+#ExecStartPre=/bin/bash -c 'while ! ip addr show | grep -q "192.168."; do sleep 1; done'
+ExecStart=/bin/bash -c 'IP=`/usr/bin/curl -s http://ipinfo.io/ip`;HOST=`hostname`;/usr/bin/curl -s -H "Accept: application/json" -H "Content-Type: application/json" -d "{\\\"content\\\":\\\"$HOST@$IP\\\",\\\"username\\\":\\\"Boot Notifier\\\"}" https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN'
+
+[Install]
+WantedBy=multi-user.target
+Alias=boot-notifier.service

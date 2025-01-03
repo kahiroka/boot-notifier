@@ -1,15 +1,17 @@
 # Boot Notifier
-Boot notification with hostname and IP address using LINE Messaging API
+Boot notification with hostname and IP address using LINE Messaging API/Discord Webhook
 
 # Files
 Linux: Systemd  
-[boot-notifier.service](boot-notifier.service)
+[line/boot-notifier.service](line/boot-notifier.service)  
+[discord/boot-notifier.service](discord/boot-notifier.service)
 
 Windows: Task Scheduler  
-[BootNotifier.xml](BootNotifier.xml)
+[line/BootNotifier.xml](line/BootNotifier.xml)  
+[discord/BootNotifier.xml](discord/BootNotifier.xml)
 
 # Usage
-First replace bearer token and UserID in the file.
+First replace BEARER_TOKEN, USER_ID, WEBHOOK_ID and WEBHOOK_TOKEN in the file.
 
 Linux  
 ```
